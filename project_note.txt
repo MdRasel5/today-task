@@ -1,0 +1,6 @@
+Today Task
+----------
+1) Make website design with responsive
+2) Add Javascript functionality
+3) Add React Tostify
+4) Make Bounus Number Contents
