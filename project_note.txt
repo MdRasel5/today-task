@@ -4,3 +4,6 @@ Today Task
 2) Add Javascript functionality
 3) Add React Tostify
 4) Make Bounus Number Contents
+
+Working Process
+=> Make json file
