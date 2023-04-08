@@ -6,6 +6,7 @@ import './Home.css';
 const Home = () => {
 
     const [tasks, setTasks] = useState([]);
+    const [tasklist, setTasklist] = useState([]);
 
     // fetch data
     useEffect(() => {
@@ -14,8 +15,8 @@ const Home = () => {
             .then(data => setTasks(data))
     }, []);
 
-    const handelTask = () => {
-        console.log("click porse");
+    const handelTask = (task) => {
+        setTasklist([...tasklist, task]);
     }
 
     return (
@@ -36,7 +37,7 @@ const Home = () => {
                 </div>
 
                 {/* Admin Infos */}
-                <AdminInfo></AdminInfo>
+                <AdminInfo tasklist={tasklist}></AdminInfo>
             </div>
         </div>
     );

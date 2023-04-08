@@ -1,5 +1,13 @@
 import React from 'react';
-const AdminInfo = () => {
+const AdminInfo = ({ tasklist }) => {
+    console.log(tasklist);
+
+    let time = 0;
+
+    for (const task of tasklist) {
+        time = time + task.time;
+    }
+
     return (
         <div className='bg-white p-5 relative'>
             <div className='sticky top-[20px]'>
@@ -21,12 +29,11 @@ const AdminInfo = () => {
                     <button className='font-semibold bg-[#F2F4FA] text-[#5D5FEF] rounded-full h-[50px] w-[50px] inline-block m-2'>45m</button>
                 </div>
 
-                {/* task-info */}
+                {/* task-details */}
                 <div className="task-info">
                     <h2 className='text-[23px] font-bold mt-[30px]'>Task Details</h2>
-                    <p className='font-semibold bg-[#F2F4FA] text-black rounded-lg py-[8px] px-[10px] m-2'>Total Time:  <span className='text-[#5D5FEF]'>2 Hours</span></p>
+                    <p className='font-semibold bg-[#F2F4FA] text-black rounded-lg py-[8px] px-[10px] m-2'>Total Time:  <span id='totalTime' className='text-[#5D5FEF]'>{time}</span></p>
                     <p className='font-semibold bg-[#F2F4FA] text-black rounded-lg py-[8px] px-[10px] m-2'>Break Time:  <span className='text-[#5D5FEF]'>10 Minute</span></p>
-
                 </div>
             </div>
         </div>
