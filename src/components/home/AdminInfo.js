@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Taskinfo from "./Taskinfo";
+
 const AdminInfo = ({ tasklist }) => {
   let time = 0;
-
   for (const task of tasklist) {
     time = time + task.time;
   }
@@ -25,6 +27,8 @@ const AdminInfo = ({ tasklist }) => {
     localStorage.setItem("task-info", JSON.stringify(breaktime));
     settaskBrkTime(breaktime);
   };
+
+  const notify = () => toast("Task Completed!");
 
   return (
     <div className="bg-white p-5 relative">
@@ -73,6 +77,27 @@ const AdminInfo = ({ tasklist }) => {
             Break Time: <span className="text-[#5D5FEF]">{taskBrkTime}</span>
           </p>
         </div>
+
+        <button
+          onClick={notify}
+          className="bg-[#5D5FEF] text-white w-full px-[30px] py-3 rounded-lg font-semibold capitalize mt-7"
+        >
+          Task Completed
+        </button>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
       </div>
     </div>
   );
